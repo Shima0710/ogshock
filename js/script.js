@@ -521,7 +521,7 @@ particlesJS("pt6", {
 /*===================================*/
 
 $('#wrapper').multiscroll({
-	sectionsColor: ['#000', '#504237', '#504237','#504237', '#504237', '#504237'],//セクションごとの背景色設定
+	sectionsColor: ['#000', '#808080', '#808080','#808080', '#808080', '#808080'],//セクションごとの背景色設定
 	anchors: ['area1', 'area2', 'area3','area4','area5','area6'],//セクションとリンクするページ内アンカーになる名前
 	menu: '#menu',//上部ナビゲーションのメニュー設定
 	navigation: true,//右のナビゲーション出現、非表示は false
@@ -578,3 +578,16 @@ $(window).on('load',function(){
 }); //=====ここまでローディングエリア（splashエリア）を0.8秒でフェードアウトした後に動かしたいJSをまとめる
     
 });// ここまでページが読み込まれたらすぐに動かしたい場合の記述
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const videos = document.querySelectorAll("video");
+    videos.forEach(video => {
+        video.muted = true; // 自動再生に必須
+        video.play().catch(error => {
+            console.error("自動再生がブロックされました:", error);
+            // 必要に応じてフォールバックのUIを表示
+        });
+    });
+});
+
